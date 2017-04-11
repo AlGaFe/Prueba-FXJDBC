@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="577.0" prefWidth="729.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="ejerciciopruebafxbd.FXMLDocumentController">
+   <children>
+      <Pane layoutX="231.0" layoutY="42.0" prefHeight="150.0" prefWidth="268.0">
+         <children>
+            <Label fx:id="LabelUsuario" layoutX="11.0" layoutY="20.0" prefHeight="14.0" prefWidth="73.0" text="Usuario" />
+            <TextField fx:id="TextFieldUsuario" layoutX="106.0" layoutY="16.0" promptText="root" />
+            <Label fx:id="LabelPassword" layoutX="11.0" layoutY="61.0" prefHeight="14.0" prefWidth="73.0" text="Password" />
+            <TextField fx:id="TextFieldPassword" layoutX="106.0" layoutY="57.0" promptText="root" />
+            <Label fx:id="LabelBD" layoutX="14.0" layoutY="101.0" prefHeight="14.0" prefWidth="73.0" text="Base de Datos" />
+            <TextField fx:id="TextFieldBD" layoutX="106.0" layoutY="97.0" promptText="parques" />
+         </children>
+      </Pane>
+      <TextArea fx:id="TextAreaDisplay" layoutX="39.0" layoutY="254.0" onDragDetected="#ActionTextAreaDisplay" prefHeight="300.0" prefWidth="638.0" />
+      <Pane layoutX="265.0" layoutY="192.0" prefHeight="44.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="ButtonConectar" layoutX="-1.0" layoutY="7.0" mnemonicParsing="false" onAction="#ActionButtonConectar" text="Conectar" />
+            <Button fx:id="ButtonDesconectar" layoutX="124.0" layoutY="7.0" mnemonicParsing="false" onAction="#ActionButtonDesconectar" text="Desconectar" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
