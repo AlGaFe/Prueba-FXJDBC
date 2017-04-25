@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 
 /* @author Álvaro García Fernández*/
 public class FXMLDocumentController implements Initializable {
-    Connection conn;
+    private Connection conn;
     private Label label;
     @FXML
     private Label LabelUsuario;
@@ -57,7 +57,8 @@ public class FXMLDocumentController implements Initializable {
         String bd=this.TextFieldBD.getText();
         String url = "jdbc:mysql://localhost:3306/" + bd;
         
-        try ( conn =DriverManager.getConnection(url, usuario, pass)) {
+        try {
+            conn = DriverManager.getConnection(url, usuario, pass) ;
         if (conn != null) {
                 this.TextAreaDisplay.appendText("Conexion a base de datos " + url + " ... OK"+"\n");
 
@@ -65,13 +66,20 @@ public class FXMLDocumentController implements Initializable {
           } catch (SQLException ex) {
            this.TextAreaDisplay.appendText("Hubo un problema al intentar conectarse con la base de datos " + url+"\n");
            this.TextAreaDisplay.appendText("Error: " + ex.getMessage()+"\n");
-        } catch (Exception e) {
+        } 
+         catch (Exception e) {
             this.TextAreaDisplay.appendText(e.getMessage()+"\n");
         }
     }
 
     @FXML
     private void ActionButtonDesconectar(ActionEvent event) {
+        try{
+            this.conn.close();
+             this.TextAreaDisplay.appendText("Desconexión realizada con éxito \n");
+        }catch (SQLException ex){
+             this.TextAreaDisplay.appendText("Fallo al desconectar \n");
+        }
  
     }
     
